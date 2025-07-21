@@ -16,7 +16,7 @@ class GitlabProvider(ToolProvider):
             try:
                 headers = {
                     "Content-Type": "application/vnd.text+json",
-                    "Authorization": f"Bearer {credentials.get('access_tokens')}",
+                    "PRIVATE-TOKEN": f"{credentials.get('access_tokens')}",
                 }
                 response = requests.get(url=f"{site_url}/api/v4/user", headers=headers, verify=credentials.get('ssl_verify', True))
                 if response.status_code != 200:
